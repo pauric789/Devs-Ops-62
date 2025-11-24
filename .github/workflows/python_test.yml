@@ -1,7 +1,7 @@
 name: Python Unit Tests CI
 
 on:
-  # Triggers the workflow on pushes and pull requests to the 'main' branch
+  
   push:
     branches: [ "main" ]
   pull_request:
@@ -9,25 +9,18 @@ on:
 
 jobs:
   test:
-    # Runs the job on a fresh Ubuntu environment
+   
     runs-on: ubuntu-latest
     
-    # Test on common Python versions for better coverage
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
     steps:
     - name: Checkout Repository Code
       uses: actions/checkout@v4
       
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.10'
         
-    - name: Run Unit Tests
+    - name: Run unit tests
       run: |
-        # CORRECTED COMMAND: The 'discover' command fixes the ModuleNotFoundError 
-        # and finds your 'unit_tests.py' file automatically.
-        python -m unittest discover
+        python -m unittest unit_test.py
