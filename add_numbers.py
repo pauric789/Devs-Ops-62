@@ -1,4 +1,5 @@
 """This module contains utility functions for adding numbers."""
+
 def add_numbers(a, b):
     """
      Adds two numbers together.
@@ -11,9 +12,8 @@ def add_numbers(a, b):
      """
     return a + b
 
-
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
-
-result = add_numbers(num1, num2)
-print(f"Result: {result}")
+if __name__ == "__main__":
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    result = add_numbers(num1, num2)
+    print(f"Result: {result}")
