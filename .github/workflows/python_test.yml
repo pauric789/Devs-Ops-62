@@ -1,0 +1,33 @@
+name: Python Unit Tests CI
+
+on:
+  # Triggers the workflow on pushes and pull requests to the 'main' branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    # Runs the job on a fresh Ubuntu environment
+    runs-on: ubuntu-latest
+    
+    # A testing strategy to run tests against multiple Python versions
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Run Unit Tests
+      run: |
+        # This command uses the unittest module's discovery feature to find and run all tests.
+        # It looks for test cases in files ending with 'Tests.py' (like your 'unit_Tests.py').
+        python -m unittest discover -p '*Tests.py'
