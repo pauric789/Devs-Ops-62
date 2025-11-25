@@ -20,4 +20,5 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
+        echo "::notice title=Pylint Analysis::Starting analysis for Python ${{ matrix.python-version }}"
         pylint $(git ls-files '*.py')
