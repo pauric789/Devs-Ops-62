@@ -24,3 +24,4 @@ if __name__ == "__main__":
     num2 = int(input("Enter second number: "))
     result = add_numbers(num1, num2)
     print(f"Result: {result}")
+    print("Test for auto documentation generation.")
