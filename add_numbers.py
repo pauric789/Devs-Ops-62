@@ -19,9 +19,3 @@ def add_numbers(a, b):
     return sum_result
 
 
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    result = add_numbers(num1, num2)
-    print(f"Result: {result}")
