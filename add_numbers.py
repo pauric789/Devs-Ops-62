@@ -17,5 +17,3 @@ def add_numbers(a, b):
     sum_result = a + b
     logging.info("The calculated sum is %s", sum_result)
     return sum_result
-
-
